@@ -6,6 +6,14 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://www.green-fix.com',
   output: 'static',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limit: 4096,
+      },
+    },
+  },
   integrations: [sitemap()],
   adapter: cloudflare({
     platformProxy: {
