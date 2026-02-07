@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.green-fix.com',
-  output: 'hybrid',
+  output: 'static',
   integrations: [sitemap()],
   adapter: cloudflare({
     platformProxy: {
