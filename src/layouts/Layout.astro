@@ -34,17 +34,20 @@ const {
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 		<link rel="manifest" href="/manifest.json">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#069865">
-		<meta name="theme-color" content="#ffffff">
-		<Schema />
-	</head>
-	<body class={bodyClass}>
-		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${site.owner.gtm}`}
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
+			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#069865">
+			<meta name="theme-color" content="#ffffff">
 
-		<div id="fb-root"></div>
+			<script async src={`https://www.googletagmanager.com/gtag/js?id=${site.owner.ga4}`}></script>
+			<script is:inline define:vars={{ ga4: site.owner.ga4 }}>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){window.dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', ga4);
+			</script>
+			<Schema />
+		</head>
+		<body class={bodyClass}>
+			<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0"></script>
 
 		<slot />
