@@ -1,26 +1,122 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import { Image } from 'astro:assets';
+import limpiezaImg from '../../assets/limpieza-bg.png'; // Usaremos esta como imagen de apoyo
 
-const title = "Limpieza General";
-const description = "Nos encargamos del aseo de tus espacios.";
+const title = "Limpieza General y Desinfección";
+const description = "Servicios profesionales de limpieza general para oficinas, industrias y residencias en Guadalajara.";
+
+const items = [
+  { title: "Limpieza de Vidrios", desc: "Interiores y exteriores con equipo de seguridad." },
+  { title: "Lavado de Pisos", desc: "Tratamientos específicos según el material (alfombra, mármol, etc)." },
+  { title: "Encerado y Brillo", desc: "Protección y estética para sus superficies." },
+  { title: "Muros y Cielos", desc: "Remoción de polvo y suciedad en zonas de difícil acceso." },
+  { title: "Desinfección de Baños", desc: "Protocolos estrictos de higiene y sanitización." },
+  { title: "Áreas de Cocina", desc: "Limpieza profunda de cocinas industriales y residenciales." },
+];
 ---
 
-<Layout title={title} description={description} bodyClass="limpieza-general">
+<Layout title={title} description={description} bodyClass="siteServicioDetalle">
   <Header />
-  <main class="container">
-    <div class="row">
-      <div class="column column-100">
-        <h4>Limpieza General</h4>
-        <ul>
-          <li>Limpieza de vidrios.</li>
-          <li>Lavado de pisos y/o alfombras.</li>
-          <li>Encerado y abrillantado de pisos.</li>
-          <li>Sacudido de muros, herrería  y cielos.</li>
-          <li>Lavado y desinfección de baños.</li>
-          <li>Lavado y desinfección de cocina.</li>
-        </ul>
+  
+  <main>
+    <!-- HERO DEL SERVICIO -->
+    <header class="service-hero">
+      <div class="container">
+        <h1>{title}</h1>
+        <p>Soluciones integrales de aseo para mantener sus espacios impecables y saludables.</p>
+      </div>
+    </header>
+
+    <div class="container section-padding">
+      <div class="row row-center">
+        <div class="column column-50">
+          <div class="service-content">
+            <h2>Higiene que se nota</h2>
+            <p>En Green Fix entendemos que un espacio limpio no es solo una cuestión estética, sino de salud y productividad. Nuestro servicio de <strong>Limpieza General</strong> está diseñado para cubrir cada rincón de sus instalaciones.</p>
+            <p>Utilizamos insumos biodegradables y maquinaria de vanguardia para asegurar resultados que superen sus expectativas, siempre adaptándonos a sus horarios para no interrumpir sus actividades.</p>
+          </div>
+        </div>
+        <div class="column column-50">
+          <Image src={limpiezaImg} alt="Equipo de limpieza profesional" class="img-rounded shadow" />
+        </div>
+      </div>
+
+      <div class="tasks-grid">
+        {items.map(item => (
+          <div class="task-card">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="service-cta">
+        <div class="cta-box text-center">
+          <h3>¿Necesita un presupuesto para su empresa?</h3>
+          <p>Realizamos visitas de diagnóstico sin costo para ofrecerle la mejor solución.</p>
+          <a href="/contacto" class="button button-primary">Solicitar Diagnóstico Gratis</a>
+        </div>
       </div>
     </div>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../../styles/parcial/variables" as *;
+
+  .service-hero {
+    background: $brand-color;
+    padding: 18rem 0 10rem;
+    color: white;
+    text-align: center;
+    
+    h1 { color: white; font-size: 4.5rem; margin-bottom: 2rem; }
+    p { font-size: 2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+  }
+
+  .section-padding { padding: 10rem 0; }
+
+  .service-content {
+    padding-right: 5rem;
+    h2 { font-size: 3.2rem; margin-bottom: 2.5rem; }
+    p { font-size: 1.8rem; line-height: 1.8; color: $text-light; margin-bottom: 2rem; }
+  }
+
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 3rem;
+    margin-top: 8rem;
+  }
+
+  .task-card {
+    background: $section-bg;
+    padding: 3rem;
+    border-radius: 8px;
+    border-left: 4px solid $brand-color;
+
+    h3 { font-size: 2rem; margin-bottom: 1rem; color: $negro; }
+    p { font-size: 1.5rem; color: $text-light; margin-bottom: 0; }
+  }
+
+  .service-cta {
+    margin-top: 10rem;
+    .cta-box {
+      background: white;
+      padding: 6rem;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      
+      h3 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+      p { font-size: 1.8rem; color: $text-light; margin-bottom: 3.5rem; }
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .service-hero { padding: 15rem 0 8rem; h1 { font-size: 3rem; } }
+    .service-content { padding-right: 0; margin-bottom: 4rem; }
+    .cta-box { padding: 3rem; }
+  }
+</style>

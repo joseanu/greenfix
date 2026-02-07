@@ -5,45 +5,96 @@ import Facebook from '../../components/Facebook.astro';
 import { Image } from 'astro:assets';
 import serviciosImg from '../../assets/servicios.jpg';
 
-const title = "Servicios";
-const description = "Flexibilidad y capacidad de adaptación a diversas necesidades del cliente.";
+const title = "Nuestros Servicios Profesional de Limpieza";
+const description = "Ofrecemos soluciones integrales de limpieza, mantenimiento y jardinería con altos estándares de calidad en Guadalajara.";
+
+const services = [
+  { title: "Limpieza General", desc: "Aseo integral de oficinas, comercios y residencias.", icon: "🧹", url: "/servicios/limpieza-general/" },
+  { title: "Mantenimiento Diario", desc: "Aseo preventivo para oficinas, bancos e industrias.", icon: "🏢", url: "/servicios/mantenimiento-diario/" },
+  { title: "Terminación de Obra", desc: "Limpieza profunda para proyectos inmobiliarios terminados.", icon: "🏗️", url: "/servicios/terminacion-de-obra/" },
+  { title: "Limpieza Fina", desc: "Cuidado detallado para residencias y espacios premium.", icon: "🏠", url: "/servicios/limpieza-fina/" },
+  { title: "Jardinería", desc: "Mantenimiento integral de áreas verdes y jardines.", icon: "🌳", url: "/servicios/jardineria/" },
+  { title: "Pulido de Pisos", desc: "Tratamiento y rebrillado de mármol, terrazo y concreto.", icon: "✨", url: "/servicios/pulido-de-pisos/" },
+  { title: "Lavado de Alfombras", desc: "Limpieza profunda de tapicería y textiles con equipo industrial.", icon: "🧼", url: "/servicios/lavado-de-alfombras/" },
+];
 ---
 
 <Layout title={title} description={description} bodyClass="siteServicios">
   <Header />
-  <main class="container">
+  
+  <main class="container section-padding">
+    <div class="services-intro">
+      <h1>Nuestros <span>Servicios</span></h1>
+      <p>Nos adaptamos a sus necesidades con personal capacitado, maquinaria moderna e insumos de primera calidad.</p>
+    </div>
+
     <div class="row">
-      <div class="column column-75 siteServicios__col1">
-        <h4><strong>Nuestros Servicios</strong></h4>
-        <p>Green Fix es la mejor opción para clientes que desean un servicio de calidad a un precio justo.</p>
-        <p>Nuestros servicios de limpieza y mantenimiento de inmuebles, posee flexibilidad y capacidad de adaptación a diversas necesidades del cliente.</p>
-        <Image src={serviciosImg} alt="Servicios de limpieza" />
-        <p>Nos encargamos de proporcionar la mano de obra, maquinaria, materiales e insumos y de coordinar los siguientes servicios:</p>
-        <ul>
-          <li>Mantenimiento diario a cualquier tipo de oficinas, escuelas, bancos, industrias, hospitales, centros comerciales, restaurantes, hoteles, cotos privados, etc.</li>
-          <li>Limpieza de terminación de obra.</li>
-          <li>Limpieza Fina a Casas habitación.</li>
-          <li>Limpieza General de Interior y Exterior de inmuebles.</li>
-          <li>Lavado de cocinas industriales.</li>
-          <li>Lavado de Cristales Interiores y Exteriores en niveles bajos y altos.</li>
-          <li>Mantenimiento de Jardinería Interior y Exterior.</li>
-          <li>Suministro y habilitación de Materiales y Consumibles de primera calidad para Áreas Sanitarias.</li>
-          <li>Pulido y rebrillado de pisos.</li>
-          <li>Lavado de Alfombras y todo tipo de tapicería (salas, autos, sillas, muebles, etc.).</li>
-          <li>Materiales para Aseo e Higiénicos de Primera Calidad entregados en sus instalaciones etiquetados con rombos de seguridad y fichas técnicas.</li>
-          <li>Suministro de materiales en sus instalaciones.</li>
-          <li>Suministro de equipo necesario para la realización de sus actividades.</li>
-          <li>Asesoría Especializada.</li>
-          <li>Supervisión Continua.</li>
-          <li>Check – List de acuerdo a áreas para optimizar tiempos y eliminar tiempos muertos.</li>
-          <li>Menor Costo Fijo – Mayor Beneficio.</li>
-          <li>Reemplazo en tiempo y forma del personal en caso de ausencia, en un plazo no mayor a 3 hrs., cumpliendo con las hrs. contratadas.</li>
-          <li>Ahorro en cuotas obrero – patronales.</li>
-        </ul>
-      </div>
-      <div class="column column-25 siteServicios__col2">
-        <Facebook />
+      <div class="column column-100">
+        <div class="services-grid">
+          {services.map(service => (
+            <a href={service.url} class="service-card-link">
+              <div class="service-card">
+                <div class="icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+                <span class="read-more">Ver detalles →</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
+
+    <section class="section-padding" style="margin-top: 8rem;">
+      <div class="row row-center">
+        <div class="column column-50">
+          <Image src={serviciosImg} alt="Servicios de limpieza profesional" class="img-rounded shadow" />
+        </div>
+        <div class="column column-50" style="padding-left: 5rem;">
+          <h2>Compromiso con la Excelencia</h2>
+          <p>En Green Fix no solo limpiamos, cuidamos su patrimonio. Nuestro equipo de técnicos especializados cubre toda la gama de actividades involucradas en el mantenimiento inmobiliario.</p>
+          <ul class="check-list">
+            <li>Asesoría Especializada</li>
+            <li>Supervisión Continua</li>
+            <li>Ahorro en cuotas obrero-patronales</li>
+            <li>Reemplazo de personal inmediato</li>
+          </ul>
+          <a href="/contacto" class="button button-primary">Solicitar Presupuesto</a>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../../styles/parcial/variables" as *;
+  
+  .section-padding {
+    padding: 12rem 0 8rem;
+  }
+
+  h1 span {
+    color: $brand-color;
+  }
+
+  .row-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .service-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 2rem;
+    font-weight: 700;
+    color: $brand-color;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+</style>

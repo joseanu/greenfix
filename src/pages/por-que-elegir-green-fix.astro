@@ -1,34 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Facebook from '../components/Facebook.astro';
 import { Image } from 'astro:assets';
 import empresaImg from '../assets/empresa.jpg';
+import staffImg from '../assets/staff.jpg';
 
 const title = "¿Por qué elegir Green Fix?";
-const description = "Atención, participación, coordinación, tecnología y servicio.";
+const description = "Conoce las ventajas competitivas que nos convierten en la mejor opción de limpieza y mantenimiento en Guadalajara.";
 ---
 
 <Layout title={title} description={description} bodyClass="siteEmpresa">
   <Header />
-  <main class="container">
-    <div class="row">
-      <div class="column column-75 siteEmpresa__col1">
-        <Image src={empresaImg} alt="¿Por qué elegir Green Fix?" class="siteEmpresa__imgIzq" />
-        <h4><strong>¿Por qué elegir Green Fix?</strong></h4>
-        <ul>
-          <li>En Green Fix otorgamos atención a las necesidades de servicios de todos nuestros clientes; desarrollando un plan de trabajo especifico que responda a sus necesidades y expectativas particulares.</li>
-          <li>Siempre buscamos tener una total participación con el cliente, a manera de alianza estratégica de negocio, para así obtener los mejores niveles de empatía y comunicación, utilizando las experiencias de ambos y lograr un trabajo en equipo.</li>
-          <li>Contamos con una gran estructura de coordinación y supervisión para verificar mediante visitas de inspección y auditorias de calidad, el cumplimiento de los objetivos y programas de trabajo.</li>
-          <li>Ofrecemos el uso de equipo y maquinaria con tecnología de punta, que garanticen calidad de desempeño y resultados de nuestro trabajo. Antes de iniciar el servicio, llevamos a cabo un diagnostico de necesidades para definir los programas de trabajo y sus rutinas aplicables a cada caso.</li>
-          <li>Tenemos el cuidado de seleccionar y capacitar a nuestro personal para permitir mayor eficiencia y atención a los detalles del servicio.</li>
-          <li>Sólo utilizamos insumos y suministros de primera calidad, biodegradables y a favor del ambiente ecológico, de marcas de prestigio como Johnson, 3M, Kimberly Clark, Biozone Chemical y Palvi de México.</li>
-        </ul>
-        <p>Por todo lo anterior esperamos contar con el favor de su preferencia y que nos dé la oportunidad de demostrarles la calidad de nuestros servicios.</p>
+  
+  <main class="container section-padding">
+    <div class="services-intro">
+      <h1>¿Por qué <span>Green Fix</span>?</h1>
+      <p>Nuestra experiencia y compromiso nos avalan como líderes en el sector.</p>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-image">
+          <Image src={empresaImg} alt="Compromiso Green Fix" />
+        </div>
+        <div class="feature-text">
+          <h3>Infraestructura Robusta</h3>
+          <p>Contamos con la maquinaria más avanzada y los insumos de mayor calidad en el mercado para garantizar resultados superiores en cada intervención.</p>
+        </div>
       </div>
-      <div class="column column-25 siteEmpresa__col2">
-        <Facebook />
+
+      <div class="feature-item">
+        <div class="feature-image">
+          <Image src={staffImg} alt="Personal Capacitado" />
+        </div>
+        <div class="feature-text">
+          <h3>Personal Altamente Capacitado</h3>
+          <p>Invertimos en la formación continua de nuestro equipo para asegurar no solo la limpieza, sino el cuidado profesional de sus instalaciones y activos.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-image">
+          <Image src={empresaImg} alt="Valores Corporativos" />
+        </div>
+        <div class="feature-text">
+          <h3>Tranquilidad Jurídica</h3>
+          <p>Nos hacemos responsables de todas las cuotas obrero-patronales y obligaciones legales, permitiéndole a usted enfocarse en el giro productivo de su negocio.</p>
+        </div>
       </div>
     </div>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/parcial/variables" as *;
+  .section-padding { padding: 12rem 0 8rem; }
+  h1 span { color: $brand-color; }
+</style>

@@ -1,9 +1,98 @@
 @use "variables" as *;
+
 .siteContacto {
-  .siteContacto__col1 {
-    padding-left: 0;
+  padding-top: 12rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8rem;
+  margin-top: 6rem;
+}
+
+.contact-info {
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
   }
-  .siteContacto__col2 {
-    padding-right: 0;
+
+  .info-item {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .icon {
+      font-size: 2.4rem;
+      color: $brand-color;
+    }
+
+    h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    p, a {
+      color: $text-light;
+      text-decoration: none;
+      font-size: 1.6rem;
+    }
+
+    a:hover {
+      color: $brand-color;
+    }
+  }
+}
+
+.contact-form-card {
+  background: white;
+  padding: 5rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  label {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    font-size: 1.4rem;
+    color: $text-color;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 2.5rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: $brand-color;
+    }
+  }
+
+  textarea {
+    height: 15rem;
+    resize: vertical;
+  }
+}
+
+@media (max-width: 48rem) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  .contact-form-card {
+    padding: 3rem;
   }
 }

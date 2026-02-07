@@ -2,14 +2,74 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
-const title = "Clientes";
-const description = "Conoce algunos de nuestros clientes.";
+const title = "Clientes y Casos de Éxito - Green Fix";
+const description = "Empresas e instituciones que confían en Green Fix para su limpieza y mantenimiento.";
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} bodyClass="siteClientes">
   <Header />
-  <main class="container">
-    <h1>Clientes</h1>
-    <p>Próximamente compartiremos nuestra lista de clientes.</p>
+  
+  <main class="container section-padding">
+    <div class="services-intro">
+      <h1>Nuestros <span>Clientes</span></h1>
+      <p>Nos enorgullece trabajar con empresas líderes en Guadalajara que exigen los más altos estándares de higiene y mantenimiento.</p>
+    </div>
+
+    <div class="clients-section">
+      <div class="row">
+        <div class="column">
+           <div class="client-info-box">
+             <h2>Confianza y Profesionalismo</h2>
+             <p>A lo largo de los años, hemos consolidado relaciones con instituciones financieras, parques industriales, centros comerciales y corporativos de primer nivel.</p>
+             <p>Nuestro enfoque en la <strong>seriedad y discreción</strong> nos ha permitido ser el socio preferido de empresas que no pueden permitirse fallos en su imagen institucional.</p>
+           </div>
+        </div>
+      </div>
+
+      <div class="row section-padding">
+        <div class="column text-center">
+          <h3>Sectores en los que operamos:</h3>
+          <div class="sectors-grid">
+            <div class="sector-item">🏢 Oficinas Corporativas</div>
+            <div class="sector-item">🏭 Parques Industriales</div>
+            <div class="sector-item">🏥 Centros Médicos</div>
+            <div class="sector-item">🛍️ Plazas Comerciales</div>
+            <div class="sector-item">🏦 Instituciones Bancarias</div>
+            <div class="sector-item">🎓 Escuelas y Universidades</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/parcial/variables" as *;
+  
+  .section-padding { padding: 12rem 0 8rem; }
+  h1 span { color: $brand-color; }
+
+  .client-info-box {
+    background: white;
+    padding: 5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border-left: 5px solid $brand-color;
+  }
+
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .sector-item {
+    background: $brand-color-light;
+    padding: 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    color: $brand-color-dark;
+    font-size: 1.4rem;
+  }
+</style>

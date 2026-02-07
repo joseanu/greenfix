@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { Image } from 'astro:assets';
+import img from '../../assets/servicios.jpg';
+
+const title = "Mantenimiento Diario de Oficinas e Industrias";
+const description = "Servicio preventivo de limpieza diaria para mantener sus instalaciones corporativas, bancarias e industriales en óptimas condiciones en Guadalajara.";
+
+const items = [
+  { title: "Aseo de Estaciones", desc: "Limpieza y desinfección de escritorios y áreas de trabajo." },
+  { title: "Áreas Comunes", desc: "Mantenimiento constante de pasillos, lobbies y recepciones." },
+  { title: "Sanitarios", desc: "Limpieza profunda y suministro de consumibles higiénicos." },
+  { title: "Gestión de Residuos", desc: "Recolección y disposición adecuada de basura diaria." },
+];
+---
+
+<Layout title={title} description={description} bodyClass="siteServicioDetalle">
+  <Header />
+  <main>
+    <header class="service-hero">
+      <div class="container">
+        <h1>{title}</h1>
+        <p>Garantizamos un entorno de trabajo impecable todos los días.</p>
+      </div>
+    </header>
+    <div class="container section-padding">
+      <div class="row row-center">
+        <div class="column column-50">
+          <div class="service-content">
+            <h2>Continuidad y Calidad</h2>
+            <p>El mantenimiento diario es vital para la imagen y salud de su empresa. En Green Fix ofrecemos cuadrillas capacitadas que operan bajo protocolos de eficiencia, asegurando que su personal trabaje en un ambiente limpio y motivador.</p>
+            <p>Nos adaptamos a sus turnos operativos para garantizar una cobertura total sin interrumpir sus actividades productivas.</p>
+          </div>
+        </div>
+        <div class="column column-50">
+          <Image src={img} alt="Mantenimiento diario de oficinas" class="img-rounded shadow" />
+        </div>
+      </div>
+      <div class="tasks-grid">
+        {items.map(item => (
+          <div class="task-card">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="service-cta">
+        <div class="cta-box text-center">
+          <h3>¿Busca un servicio de planta para su empresa?</h3>
+          <p>Ofrecemos planes mensuales competitivos con supervisión incluida.</p>
+          <a href="/contacto" class="button button-primary">Solicitar Cotización Mensual</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/parcial/variables" as *;
+  .service-hero { background: $brand-color; padding: 18rem 0 10rem; color: white; text-align: center; h1 { color: white; font-size: 4rem; margin-bottom: 2rem; } p { font-size: 2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; } }
+  .section-padding { padding: 10rem 0; }
+  .service-content { padding-right: 5rem; h2 { font-size: 3.2rem; margin-bottom: 2.5rem; } p { font-size: 1.8rem; line-height: 1.8; color: $text-light; margin-bottom: 2rem; } }
+  .tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 3rem; margin-top: 8rem; }
+  .task-card { background: $section-bg; padding: 3rem; border-radius: 8px; border-left: 4px solid $brand-color; h3 { font-size: 2rem; margin-bottom: 1rem; color: $negro; } p { font-size: 1.5rem; color: $text-light; margin-bottom: 0; } }
+  .service-cta { margin-top: 10rem; .cta-box { background: white; padding: 6rem; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); h3 { font-size: 2.8rem; margin-bottom: 1.5rem; } p { font-size: 1.8rem; color: $text-light; margin-bottom: 3.5rem; } } }
+  @media (max-width: 40rem) { .service-hero { padding: 15rem 0 8rem; h1 { font-size: 3rem; } } .service-content { padding-right: 0; margin-bottom: 4rem; } .cta-box { padding: 3rem; } }
+</style>

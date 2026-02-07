@@ -1,25 +1,24 @@
 @use "sass:color";
 
 // tipografias
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
 // dimensiones
-$spacing-unit:     2rem;
+$spacing-unit:     3rem; // Aumentamos espacio
+$content-width:    1200px;
 
-$content-width:    120rem;
-
-// colores
-$text-color:       #706f6f;
-$background-color: #f6f6f6;
-$brand-color:      #069865; // El verde oscuro
-$brand-color2:     #9bd972; // El verde claro
-$brand-color3:     #d1eeff; // azul claro
-
-
+// colores modernos
+$brand-color:      #069865; // Verde Green Fix
+$brand-color-dark: #047a51;
+$brand-color-light:#eef9f5;
+$text-color:       #2d3436;
+$text-light:       #636e72;
+$background-color: #ffffff;
+$section-bg:       #f8f9fa;
 
 $blanco:           #ffffff;
-$negro:            #000000;
+$negro:            #2d3436;
 
-$grey-color:       #828282;
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
-$grey-color-dark:  color.adjust($grey-color, $lightness: -25%);
+$grey-color:       #b2bec3;
+$grey-color-light: color.adjust($grey-color, $lightness: 20%);
+$grey-color-dark:  color.adjust($grey-color, $lightness: -20%);

@@ -3,52 +3,257 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import { Image } from 'astro:assets';
 
-// Importamos la imagen del hero
+// Importamos imágenes
 import heroImg from '../assets/headerhome1.jpg';
 import serviciosImg from '../assets/servicioshome.jpg';
 import servicios2Img from '../assets/servicioshome2.jpg';
 
-const pageTitle = "Bienvenidos - Green Fix Limpieza";
+const pageTitle = "Limpieza y Jardinería Profesional en Guadalajara";
+const description = "Green Fix: Servicios integrales de limpieza industrial, corporativa y mantenimiento de jardines en Guadalajara. Calidad garantizada.";
 ---
 
-<Layout title={pageTitle} bodyClass="inicio">
+<Layout title={pageTitle} description={description} bodyClass="inicio">
 	<Header />
 	
-	<main class="container">
-		<div class="siteHome__heroWrap">
-			<div class="siteHome__hero">
-				<Image src={heroImg} alt="Bienvenidos a Green Fix" />
-				<div class="siteHome__hero__text">
-					<h3>
-						{/* Aquí iba un icono SVG "sweep" */}
-						Bienvenidos
-					</h3>
-					<p>Green Fix es la mejor opción para clientes que desean un servicio de calidad a un precio justo. Nuestros servicios de limpieza y mantenimiento de inmuebles, brindan flexibilidad y capacidad de adaptación a diversas necesidades del cliente.</p>
+	<main>
+		<!-- HERO SECTION -->
+		<section class="hero">
+			<div class="hero__bg">
+				<Image src={heroImg} alt="Limpieza Profesional Green Fix" quality="high" />
+			</div>
+			<div class="container hero__content">
+				<div class="hero__text">
+					<h1>Expertos en <span>Limpieza</span> y Jardinería</h1>
+					<p>Soluciones profesionales para empresas y hogares con los más altos estándares de calidad en Guadalajara.</p>
+					<div class="hero__actions">
+						<a href="/contacto" class="button button-primary">Cotizar ahora</a>
+						<a href="/servicios" class="button button-outline">Ver servicios</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="row">
-			<div class="column column-100">
-				<h1 class="h3"><strong>Servicio de Limpieza</strong></h1>
-				<p>Green Fix fue creada debido a la necesidad que existe en el mercado actual de un servicio profesional de limpieza, cumpliendo con los más altos estándares de calidad que el cliente requiere.</p>
-				<p>En Green Fix estamos convencidos de la preocupación que existe actualmente por parte del empresario para mantener una imagen impecable para su negocio y al mismo tiempo evitar el desvío de recursos humanos en áreas no contempladas dentro del giro de sus actividades no productivas, hemos creado un equipo de técnicos especializados que cubre la gama de actividades involucradas en el mantenimiento inmobiliario.</p>
+		<!-- TRUST SECTION (Llamada a la confianza) -->
+		<section class="trust section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="column">
+						<div class="section-title text-center">
+							<h2>¿Por qué elegir Green Fix?</h2>
+							<p>Más que una empresa de limpieza, somos su socio estratégico en mantenimiento inmobiliario.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column column-33 trust-card">
+						<div class="icon">✨</div>
+						<h3>Calidad Garantizada</h3>
+						<p>Cumplimos con los más altos estándares exigidos por el mercado actual.</p>
+					</div>
+					<div class="column column-33 trust-card">
+						<div class="icon">🤝</div>
+						<h3>Trajes a la Medida</h3>
+						<p>Servicios flexibles que se adaptan a las necesidades específicas de cada cliente.</p>
+					</div>
+					<div class="column column-33 trust-card">
+						<div class="icon">⏱️</div>
+						<h3>Rapidez y Puntualidad</h3>
+						<p>Solución de problemas en tiempo y forma para no detener su productividad.</p>
+					</div>
+				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="row">
-			<div class="column column-67">
-				<h4><strong>Valores</strong></h4>
-				<Image src={serviciosImg} alt="Servicios de limpieza" />
-				<p>MISIÓN: Ofrecer y Garantizar un servicio de limpieza con los mas altos estándares de calidad, que el cliente requiere.</p>
-				<p>VISIÓN: Ser una compañía de vanguardia, con servicios de calidad y personal capacitado y profesional, garantizando a cada uno de sus clientes un traje de servicios hecho a la medida, que los vista con la imagen optima requerida.</p>
-				<p>POLÍTICA: Dar a nuestros clientes un servicio de limpieza basado en la eficiencia y calidad a través de la Rapidez (solución de problemas en tiempo y forma), Profesionalismo, Seriedad y Puntualidad.</p>
+		<!-- ABOUT SECTION (Reemplaza los valores viejos por algo más visual) -->
+		<section class="about section-padding bg-light">
+			<div class="container">
+				<div class="row row-center">
+					<div class="column column-50">
+						<Image src={serviciosImg} alt="Nuestro equipo en acción" class="img-rounded shadow" />
+					</div>
+					<div class="column column-50 about__text">
+						<span class="subtitle">Sobre Nosotros</span>
+						<h2>Imagen impecable para su negocio</h2>
+						<p>En Green Fix estamos convencidos de la importancia de mantener una imagen impecable. Evitamos el desvío de sus recursos humanos en áreas no productivas mediante un equipo de técnicos especializados.</p>
+						<ul class="check-list">
+							<li>Técnicos especializados</li>
+							<li>Imagen profesional</li>
+							<li>Optimización de recursos</li>
+						</ul>
+						<a href="/por-que-elegir-green-fix" class="button button-outline">Conocer más</a>
+					</div>
+				</div>
 			</div>
-			<div class="column column-33">
-				<h4><strong>¿Qué hacemos?</strong></h4>
-				<Image src={servicios2Img} alt="Servicios de limpieza" />
-				<p>Integramos un servicio profesional tendiente a resolver de manera eficaz todas aquellas situaciones que obstruyan el desempeño óptimo de las actividades internas de la empresa, o que deterioren su imagen.</p>
+		</section>
+
+		<!-- CTA SECTION -->
+		<section class="cta section-padding accent-bg text-center">
+			<div class="container">
+				<h2>¿Listo para mejorar la imagen de su espacio?</h2>
+				<p>Contáctenos hoy mismo y reciba una asesoría personalizada.</p>
+				<a href="/contacto" class="button button-white">Solicitar Presupuesto</a>
 			</div>
-		</div>
+		</section>
 	</main>
 </Layout>
+
+<style lang="scss">
+	@use "../styles/parcial/variables" as *;
+
+	.section-padding {
+		padding: 8rem 0;
+	}
+
+	.bg-light {
+		background-color: $section-bg;
+	}
+
+	.accent-bg {
+		background-color: $brand-color;
+		color: white;
+		h2 { color: white; }
+	}
+
+	.text-center { text-center: center; }
+	
+	.hero {
+		position: relative;
+		height: 80vh;
+		min-height: 500px;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		background: #000;
+
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			opacity: 0.6;
+			
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__content {
+			position: relative;
+			z-index: 2;
+		}
+
+		&__text {
+			max-width: 650px;
+			color: white;
+
+			h1 {
+				font-size: 4.5rem;
+				font-weight: 700;
+				line-height: 1.2;
+				margin-bottom: 2rem;
+				color: white;
+
+				span {
+					color: $brand-color;
+				}
+			}
+
+			p {
+				font-size: 1.8rem;
+				margin-bottom: 3rem;
+				opacity: 0.9;
+			}
+		}
+	}
+
+	.section-title {
+		margin-bottom: 6rem;
+		h2 {
+			font-size: 3.2rem;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.trust-card {
+		text-align: center;
+		padding: 3rem;
+		transition: transform 0.3s ease;
+
+		&:hover {
+			transform: translateY(-10px);
+		}
+
+		.icon {
+			font-size: 4rem;
+			margin-bottom: 2rem;
+			display: block;
+		}
+
+		h3 {
+			font-size: 2rem;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.img-rounded {
+		border-radius: 8px;
+	}
+
+	.shadow {
+		box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+	}
+
+	.about__text {
+		padding-left: 5rem;
+		
+		.subtitle {
+			text-transform: uppercase;
+			color: $brand-color;
+			font-weight: 700;
+			letter-spacing: 1px;
+			display: block;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.check-list {
+		list-style: none;
+		margin: 2rem 0;
+		padding: 0;
+
+		li {
+			position: relative;
+			padding-left: 3rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+
+			&:before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				color: $brand-color;
+				font-weight: 900;
+			}
+		}
+	}
+
+	.button-white {
+		background-color: white;
+		color: $brand-color;
+		border: none;
+		&:hover {
+			background-color: #eee;
+			color: $brand-color-dark;
+		}
+	}
+
+	@media (max-width: 40rem) {
+		.hero__text h1 { font-size: 3rem; }
+		.section-padding { padding: 5rem 0; }
+		.about__text { padding-left: 1.5rem; margin-top: 3rem; }
+	}
+</style>

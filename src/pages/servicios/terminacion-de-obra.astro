@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { Image } from 'astro:assets';
+import img from '../../assets/servicioshome.jpg';
+
+const title = "Limpieza de Terminación de Obra";
+const description = "Servicio especializado de limpieza profunda para construcciones y remodelaciones. Entrega de proyectos en estado impecable en Guadalajara.";
+
+const items = [
+  { title: "Remoción de Escombros", desc: "Retiro de residuos finos de construcción y restos de materiales." },
+  { title: "Limpieza de Detalle", desc: "Eliminación de manchas de pintura, yeso y cemento en pisos y marcos." },
+  { title: "Vidrios y Ventanería", desc: "Limpieza profunda de cristales y marcos tras la obra." },
+  { title: "Aspirado Industrial", desc: "Eliminación total de polvo en techos, muros y rincones." },
+];
+---
+
+<Layout title={title} description={description} bodyClass="siteServicioDetalle">
+  <Header />
+  <main>
+    <header class="service-hero">
+      <div class="container">
+        <h1>{title}</h1>
+        <p>El toque final de perfección para su proyecto arquitectónico.</p>
+      </div>
+    </header>
+    <div class="container section-padding">
+      <div class="row row-center">
+        <div class="column column-50">
+          <div class="service-content">
+            <h2>Listos para Habitar</h2>
+            <p>Sabemos que la entrega de una obra es el momento más crítico. En Green Fix nos encargamos de que cada rincón brille, eliminando todo rastro de la construcción para que sus clientes reciban un espacio verdaderamente nuevo e impecable.</p>
+            <p>Contamos con equipo industrial de aspirado y técnicos expertos en el manejo de superficies delicadas tras la obra.</p>
+          </div>
+        </div>
+        <div class="column column-50">
+          <Image src={img} alt="Limpieza de obra terminada" class="img-rounded shadow" />
+        </div>
+      </div>
+      <div class="tasks-grid">
+        {items.map(item => (
+          <div class="task-card">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="service-cta">
+        <div class="cta-box text-center">
+          <h3>¿Tiene una obra por entregar?</h3>
+          <p>Cotice hoy mismo el servicio de limpieza fina para su proyecto.</p>
+          <a href="/contacto" class="button button-primary">Cotizar Limpieza de Obra</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/parcial/variables" as *;
+  .service-hero { background: $brand-color; padding: 18rem 0 10rem; color: white; text-align: center; h1 { color: white; font-size: 4rem; margin-bottom: 2rem; } p { font-size: 2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; } }
+  .section-padding { padding: 10rem 0; }
+  .service-content { padding-right: 5rem; h2 { font-size: 3.2rem; margin-bottom: 2.5rem; } p { font-size: 1.8rem; line-height: 1.8; color: $text-light; margin-bottom: 2rem; } }
+  .tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 3rem; margin-top: 8rem; }
+  .task-card { background: $section-bg; padding: 3rem; border-radius: 8px; border-left: 4px solid $brand-color; h3 { font-size: 2rem; margin-bottom: 1rem; color: $negro; } p { font-size: 1.5rem; color: $text-light; margin-bottom: 0; } }
+  .service-cta { margin-top: 10rem; .cta-box { background: white; padding: 6rem; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); h3 { font-size: 2.8rem; margin-bottom: 1.5rem; } p { font-size: 1.8rem; color: $text-light; margin-bottom: 3.5rem; } } }
+  @media (max-width: 40rem) { .service-hero { padding: 15rem 0 8rem; h1 { font-size: 3rem; } } .service-content { padding-right: 0; margin-bottom: 4rem; } .cta-box { padding: 3rem; } }
+</style>

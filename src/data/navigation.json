@@ -6,7 +6,13 @@
       "title": "Servicios",
       "url": "/servicios/",
       "submenu": [
-        { "title": "Limpieza General", "url": "/servicios/limpieza-general/" }
+        { "title": "Limpieza General", "url": "/servicios/limpieza-general/" },
+        { "title": "Mantenimiento Diario", "url": "/servicios/mantenimiento-diario/" },
+        { "title": "Terminación de Obra", "url": "/servicios/terminacion-de-obra/" },
+        { "title": "Limpieza Fina", "url": "/servicios/limpieza-fina/" },
+        { "title": "Jardinería", "url": "/servicios/jardineria/" },
+        { "title": "Pulido de Pisos", "url": "/servicios/pulido-de-pisos/" },
+        { "title": "Lavado de Alfombras", "url": "/servicios/lavado-de-alfombras/" }
       ]
     },
     { "title": "Staff", "url": "/staff/" },

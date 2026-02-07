@@ -1,41 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Facebook from '../components/Facebook.astro';
-import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import staffImg from '../assets/staff.jpg';
 
-const title = "Staff";
-const description = "Equipo profesional en la Selección, Contratación y Capacitación de nuestro personal.";
+const title = "Nuestro Equipo - Staff Green Fix";
+const description = "Conoce al equipo de profesionales detrás de los servicios de limpieza y mantenimiento de Green Fix.";
+
+const team = [
+  { name: "Equipo Operativo", role: "Técnicos Especialistas", image: staffImg },
+  { name: "Supervisión", role: "Control de Calidad", image: staffImg },
+  { name: "Administración", role: "Atención al Cliente", image: staffImg },
+];
 ---
 
 <Layout title={title} description={description} bodyClass="siteStaff">
   <Header />
-  <main class="container">
-    <div class="row">
-      <div class="column column-75 siteStaff__col1">
-        <h4><strong>Staff</strong></h4>
-        <Icon icon="apron" />
-        <p>Green Fix comprometido con la seguridad de nuestros clientes cuenta con un equipo profesional en la Selección, Contratación y Capacitación de nuestro personal de tal manera que nos ofrece lo siguiente:</p>
-        <Image src={staffImg} alt="Staff de limpieza" class="siteStaff__imgIzq" />
-        <ul>
-          <li>Personal Investigado y con carta policía.</li>
-          <li>Expedientes Electrónicos de nuestro personal.</li>
-          <li>Personal capacitado, en teoría y práctica respecto al uso de productos de limpieza, áreas de aseo, lo cual se traduce en una alta calidad de los servicios que prestamos a los clientes.</li>
-          <li>Promovemos entre nuestros clientes que el pago de percepciones al personal operativo sea superior al salario mínimo, con el propósito de mantener un mejor nivel de motivación hacia el desempeño del trabajador y reducir al máximo los índices de rotación que tanto nos perjudican en estos tiempos.</li>
-          <li>Nos comprometemos a cubrir todos los derechos de nuestro personal y asumir la responsabilidad laboral derivada del servicio contratado por el cliente.</li>
-        </ul>
-        <p>En Green Fix nuestro personal es lo mas importante por lo tanto cuenta con todas las prestaciones previstas en la L.F.T. así mismo cuenta con una despensa mensual la cual se le otorga en base a su productividad evaluada a través de las supervisiones de sus áreas de trabajo e imagen.</p>
-        <blockquote>
-          <h4>Uniformes</h4>
-          <Icon icon="shirt" />
-          <p>Por imagen y seguridad, otorgamos a nuestro personal operativo uniforme institucional y credencial de identificación para facilitar su localización y control.</p>
-        </blockquote>
-      </div>
-      <div class="column column-25 siteStaff__col2">
-        <Facebook />
-      </div>
+  
+  <main class="container section-padding">
+    <div class="services-intro">
+      <h1>Nuestro <span>Equipo</span></h1>
+      <p>Contamos con técnicos especializados y personal administrativo comprometido con la excelencia en el servicio.</p>
     </div>
+
+    <div class="team-grid">
+      {team.map(member => (
+        <div class="team-card">
+          <div class="team-image">
+            <Image src={member.image} alt={member.name} />
+          </div>
+          <h3>{member.name}</h3>
+          <span>{member.role}</span>
+        </div>
+      ))}
+    </div>
+
+    <section class="section-padding" style="margin-top: 8rem; text-align: center; background: #f8f9fa; border-radius: 12px;">
+       <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+         <h2>Capacitación Constante</h2>
+         <p>En Green Fix, el personal es nuestro activo más valioso. Por ello, mantenemos programas de capacitación continua en técnicas de limpieza profunda, manejo de químicos certificados y seguridad industrial.</p>
+       </div>
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/parcial/variables" as *;
+  .section-padding { padding: 12rem 0 8rem; }
+  h1 span { color: $brand-color; }
+</style>
