@@ -41,12 +41,28 @@
   align-items: center;
 
   @media (max-width: 48rem) {
-    display: none; // Menú móvil por implementar mejor después
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    border-top: 1px solid rgba(0,0,0,0.08);
   }
 }
 
 .siteHeader__menuItem {
   position: relative;
+
+  @media (max-width: 48rem) {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
   
   &:hover .siteHeader__subMenu {
     opacity: 1;
@@ -67,6 +83,11 @@
 
   &:hover, &.activo {
     color: $brand-color;
+  }
+
+  @media (max-width: 48rem) {
+    display: block;
+    padding: 1.4rem 2rem;
   }
 }
 
@@ -97,6 +118,22 @@
       color: $brand-color;
     }
   }
+
+  @media (max-width: 48rem) {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border-top: 0;
+    min-width: 0;
+    background: #f8f9fa;
+    padding: 0.5rem 0;
+
+    a {
+      padding: 0.9rem 3rem;
+    }
+  }
 }
 
 .header-cta {
@@ -106,6 +143,16 @@
     line-height: 3.6rem;
     padding: 0 2rem;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 48rem) {
+    margin: 1.2rem 2rem 2rem;
+
+    .button {
+      width: 100%;
+      text-align: center;
+      line-height: 4rem;
+    }
   }
 }
 
@@ -119,5 +166,21 @@
   
   @media (max-width: 48rem) {
     display: block;
+  }
+}
+
+@media (max-width: 48rem) {
+  .header-container {
+    height: 8rem;
+    padding: 0 1.6rem;
+  }
+
+  .siteHeader__logo img {
+    height: 4rem;
+  }
+
+  .siteHeader.menu-open .siteHeader__nav {
+    max-height: 85vh;
+    overflow-y: auto;
   }
 }

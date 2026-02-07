@@ -115,6 +115,12 @@ const description = "Green Fix: Servicios integrales de limpieza industrial, cor
 	}
 
 	.text-center { text-center: center; }
+
+	.hero__actions {
+		display: flex;
+		gap: 1.2rem;
+		flex-wrap: wrap;
+	}
 	
 	.hero {
 		position: relative;
@@ -253,7 +259,11 @@ const description = "Green Fix: Servicios integrales de limpieza industrial, cor
 
 	@media (max-width: 40rem) {
 		.hero__text h1 { font-size: 3rem; }
+		.hero__text p { font-size: 1.4rem; }
+		.hero__actions { flex-direction: column; }
+		.hero__actions .button { width: 100%; }
 		.section-padding { padding: 5rem 0; }
-		.about__text { padding-left: 1.5rem; margin-top: 3rem; }
+		.about__text { padding-left: 0; margin-top: 3rem; }
+		.trust-card { padding: 2rem 1rem; }
 	}
 </style>
