@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Facebook from '../../components/Facebook.astro';
+import { Image } from 'astro:assets';
+import serviciosImg from '../../assets/servicios.jpg';
+
+const title = "Servicios";
+const description = "Flexibilidad y capacidad de adaptación a diversas necesidades del cliente.";
+---
+
+<Layout title={title} description={description} bodyClass="siteServicios">
+  <Header />
+  <main class="container">
+    <div class="row">
+      <div class="column column-75 siteServicios__col1">
+        <h4><strong>Nuestros Servicios</strong></h4>
+        <p>Green Fix es la mejor opción para clientes que desean un servicio de calidad a un precio justo.</p>
+        <p>Nuestros servicios de limpieza y mantenimiento de inmuebles, posee flexibilidad y capacidad de adaptación a diversas necesidades del cliente.</p>
+        <Image src={serviciosImg} alt="Servicios de limpieza" />
+        <p>Nos encargamos de proporcionar la mano de obra, maquinaria, materiales e insumos y de coordinar los siguientes servicios:</p>
+        <ul>
+          <li>Mantenimiento diario a cualquier tipo de oficinas, escuelas, bancos, industrias, hospitales, centros comerciales, restaurantes, hoteles, cotos privados, etc.</li>
+          <li>Limpieza de terminación de obra.</li>
+          <li>Limpieza Fina a Casas habitación.</li>
+          <li>Limpieza General de Interior y Exterior de inmuebles.</li>
+          <li>Lavado de cocinas industriales.</li>
+          <li>Lavado de Cristales Interiores y Exteriores en niveles bajos y altos.</li>
+          <li>Mantenimiento de Jardinería Interior y Exterior.</li>
+          <li>Suministro y habilitación de Materiales y Consumibles de primera calidad para Áreas Sanitarias.</li>
+          <li>Pulido y rebrillado de pisos.</li>
+          <li>Lavado de Alfombras y todo tipo de tapicería (salas, autos, sillas, muebles, etc.).</li>
+          <li>Materiales para Aseo e Higiénicos de Primera Calidad entregados en sus instalaciones etiquetados con rombos de seguridad y fichas técnicas.</li>
+          <li>Suministro de materiales en sus instalaciones.</li>
+          <li>Suministro de equipo necesario para la realización de sus actividades.</li>
+          <li>Asesoría Especializada.</li>
+          <li>Supervisión Continua.</li>
+          <li>Check – List de acuerdo a áreas para optimizar tiempos y eliminar tiempos muertos.</li>
+          <li>Menor Costo Fijo – Mayor Beneficio.</li>
+          <li>Reemplazo en tiempo y forma del personal en caso de ausencia, en un plazo no mayor a 3 hrs., cumpliendo con las hrs. contratadas.</li>
+          <li>Ahorro en cuotas obrero – patronales.</li>
+        </ul>
+      </div>
+      <div class="column column-25 siteServicios__col2">
+        <Facebook />
+      </div>
+    </div>
+  </main>
+</Layout>

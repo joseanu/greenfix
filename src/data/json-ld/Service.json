@@ -1,0 +1,122 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "Service",
+  "serviceType": "Limpieza y mantenimiento de inmuebles",
+  "provider": {% include json-ld/LocalBusiness.json %},
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+    "@type": "GeoCoordinates",
+      "latitude": "20.666111",
+      "longitude": "-103.351944"
+    },
+    "geoRadius": "16500"
+	},
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicio de limpieza",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Limpieza de casas",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pulido de pisos"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavado de salas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavado de alfombras"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Limpieza de oficinas",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Limpieza de muebles"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Limpieza industrial"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Limpieza de vidrios"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Mantenimiento",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mantenimiento diario a comercios"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mantenimiento de jardinería interior y exterior"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Suministros",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Suministro de materiales y consumibles para Áreas Sanitarias"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Suministro de materiales para limpieza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Suministro de equipo para limpieza"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

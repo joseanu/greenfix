@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const title = "Página no encontrada";
+---
+
+<Layout title={title}>
+  <Header />
+  <main class="container">
+    <div class="row">
+      <div class="column">
+        <h1>404</h1>
+        <p>Lo sentimos, la página que buscas no existe.</p>
+        <a href="/" class="button">Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+</Layout>

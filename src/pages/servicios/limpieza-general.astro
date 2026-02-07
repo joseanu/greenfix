@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const title = "Limpieza General";
+const description = "Nos encargamos del aseo de tus espacios.";
+---
+
+<Layout title={title} description={description} bodyClass="limpieza-general">
+  <Header />
+  <main class="container">
+    <div class="row">
+      <div class="column column-100">
+        <h4>Limpieza General</h4>
+        <ul>
+          <li>Limpieza de vidrios.</li>
+          <li>Lavado de pisos y/o alfombras.</li>
+          <li>Encerado y abrillantado de pisos.</li>
+          <li>Sacudido de muros, herrería  y cielos.</li>
+          <li>Lavado y desinfección de baños.</li>
+          <li>Lavado y desinfección de cocina.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</Layout>

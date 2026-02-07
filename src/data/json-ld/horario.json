@@ -1,0 +1,34 @@
+[
+{% capture los_dias %}0,Mo,Tu,We,Th,Fr,Sa,Su{% endcapture %}
+{% assign dias = los_dias | split: ',' %}
+
+{% assign hor_ary = site.owner.horario | split: ',' %}
+
+{% for hor_part in hor_ary %}
+    
+    {% assign part_ary = hor_part | split: ':' %}
+    {% assign horas_ary = part_ary[1] | split: '' %}
+    {% assign horas = horas_ary[0] | append: horas_ary[1] | append: ':' | append: horas_ary[2] | append: horas_ary[3] | append: horas_ary[4] | append: horas_ary[5] | append: horas_ary[6] | append: ':' | append: horas_ary[7] | append: horas_ary[8] %}
+    
+    {% if part_ary[0] contains "-" %}
+        {% assign dias_ary = part_ary[0] | split: '-' %}
+        {% assign dia1 = dias_ary[0] | times: 1 %}
+        {% assign dia2 = dias_ary[1] | times: 1 %}
+
+        "{{ dias[dia1] }}-{{ dias[dia2] }} {{ horas }}"
+    
+    {% else %}
+        {% assign dia = part_ary[0] | times: 1 %}
+
+        "{{ dias[dia] }} {{ horas }}"
+
+    {% endif %}
+    
+    {% if forloop.last == true %}
+        
+    {% else %}
+        ,
+    {% endif %}
+
+{% endfor %}
+]

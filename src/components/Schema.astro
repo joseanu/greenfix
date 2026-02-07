@@ -1,0 +1,19 @@
+---
+import site from '../data/site.json';
+
+// En un mundo ideal, procesaríamos estos archivos para cambiar las variables
+// Por ahora, inyectaremos el contenido básico o crearemos los objetos aquí.
+
+const localBusiness = {
+  "@context": "http://schema.org",
+  "@type": "LocalBusiness",
+  "name": site.title,
+  "description": site.description,
+  "url": site.url,
+  "email": site.owner.email,
+  "telephone": site.owner.telefonos[0],
+  "image": site.url + "/assets/img/social/logo.png"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />

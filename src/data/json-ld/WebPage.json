@@ -1,0 +1,27 @@
+{
+  "http://schema.org/name": "{{ page.title }}",
+  "http://schema.org/description": "{{ page.description }}",
+  "http://schema.org/keywords": "",
+  "http://schema.org/url": "{{ page.url | prepend: site.url }}",
+  {% if page.tipo %}
+    {% assign type = page.tipo %}
+  {% else %}
+    {% assign type = "WebPage" %}
+  {% endif %}
+  "@type": "http://schema.org/{{ type }}",
+  "@context": {
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "url": "schema:url",
+    "name": "schema:name",
+    "alternateName": "schema:alternateName",
+    "breadcrumb": "schema:breadcrumb",
+    "author": "schema:author",
+    "keywords": "schema:keywords",
+    "header": "schema:WPHeader",
+    "footer": "schema:WPFooter",
+    "sameAs": "schema:sameAs",
+    "Article": "schema:Article",
+    "Organization": "schema:Organization"
+  }
+}

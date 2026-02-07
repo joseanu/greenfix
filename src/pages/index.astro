@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import { Image } from 'astro:assets';
+
+// Importamos la imagen del hero
+import heroImg from '../assets/headerhome1.jpg';
+import serviciosImg from '../assets/servicioshome.jpg';
+import servicios2Img from '../assets/servicioshome2.jpg';
+
+const pageTitle = "Bienvenidos - Green Fix Limpieza";
+---
+
+<Layout title={pageTitle} bodyClass="inicio">
+	<Header />
+	
+	<main class="container">
+		<div class="siteHome__heroWrap">
+			<div class="siteHome__hero">
+				<Image src={heroImg} alt="Bienvenidos a Green Fix" />
+				<div class="siteHome__hero__text">
+					<h3>
+						{/* Aquí iba un icono SVG "sweep" */}
+						Bienvenidos
+					</h3>
+					<p>Green Fix es la mejor opción para clientes que desean un servicio de calidad a un precio justo. Nuestros servicios de limpieza y mantenimiento de inmuebles, brindan flexibilidad y capacidad de adaptación a diversas necesidades del cliente.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="column column-100">
+				<h1 class="h3"><strong>Servicio de Limpieza</strong></h1>
+				<p>Green Fix fue creada debido a la necesidad que existe en el mercado actual de un servicio profesional de limpieza, cumpliendo con los más altos estándares de calidad que el cliente requiere.</p>
+				<p>En Green Fix estamos convencidos de la preocupación que existe actualmente por parte del empresario para mantener una imagen impecable para su negocio y al mismo tiempo evitar el desvío de recursos humanos en áreas no contempladas dentro del giro de sus actividades no productivas, hemos creado un equipo de técnicos especializados que cubre la gama de actividades involucradas en el mantenimiento inmobiliario.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="column column-67">
+				<h4><strong>Valores</strong></h4>
+				<Image src={serviciosImg} alt="Servicios de limpieza" />
+				<p>MISIÓN: Ofrecer y Garantizar un servicio de limpieza con los mas altos estándares de calidad, que el cliente requiere.</p>
+				<p>VISIÓN: Ser una compañía de vanguardia, con servicios de calidad y personal capacitado y profesional, garantizando a cada uno de sus clientes un traje de servicios hecho a la medida, que los vista con la imagen optima requerida.</p>
+				<p>POLÍTICA: Dar a nuestros clientes un servicio de limpieza basado en la eficiencia y calidad a través de la Rapidez (solución de problemas en tiempo y forma), Profesionalismo, Seriedad y Puntualidad.</p>
+			</div>
+			<div class="column column-33">
+				<h4><strong>¿Qué hacemos?</strong></h4>
+				<Image src={servicios2Img} alt="Servicios de limpieza" />
+				<p>Integramos un servicio profesional tendiente a resolver de manera eficaz todas aquellas situaciones que obstruyan el desempeño óptimo de las actividades internas de la empresa, o que deterioren su imagen.</p>
+			</div>
+		</div>
+	</main>
+</Layout>

@@ -1,0 +1,14 @@
+@use "variables" as *;
+.siteEmpresa {
+  .siteEmpresa__col1 {
+    padding-left: 0;
+  }
+  .siteEmpresa__col2 {
+    padding-right: 0;
+  }
+   
+  .siteEmpresa__imgIzq {
+    float: left;
+    margin-right: 6rem;
+  }
+}

@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Facebook from '../components/Facebook.astro';
+
+export const prerender = false;
+
+const title = "Contacto";
+const description = "Resolveremos tus necesidades de limpieza.";
+
+let status = { type: '', message: '' };
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const nombre = data.get("nombre");
+    const correo = data.get("correo");
+    const empresa = data.get("empresa");
+    const mensaje = data.get("mensaje");
+    const gotcha = data.get("_gotcha");
+
+    // Spam protection simple
+    if (gotcha) {
+      return new Response("Spam detected", { status: 400 });
+    }
+
+    // AQUÍ IRÍA TU LÓGICA DE ENVÍO DE EMAIL
+    // Por ejemplo usando Resend, SendGrid o un webhook.
+    console.log(`Mensaje recibido de ${nombre} (${correo}) de la empresa ${empresa}: ${mensaje}`);
+
+    // Para responder al fetch del cliente:
+    if (Astro.request.headers.get("Accept")?.includes("application/json")) {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    status = { type: 'success', message: 'Muchas gracias. Recibimos tu mensaje.' };
+  } catch (error) {
+    console.error(error);
+    if (Astro.request.headers.get("Accept")?.includes("application/json")) {
+      return new Response(JSON.stringify({ success: false }), { status: 500 });
+    }
+    status = { type: 'error', message: 'Tuvimos un problema al enviar tu mensaje.' };
+  }
+}
+---
+
+<Layout title={title} description={description} bodyClass="siteContacto">
+  <Header />
+  <main class="container">
+    <div class="row">
+      <div class="column column-75 siteContacto__col1">
+        <h4><strong>Contáctanos</strong></h4>
+        <p>Por favor llena la siguiente forma y nosotros nos pondremos en contacto a la brevedad.</p>
+        
+        {status.message && (
+          <div class={`status ${status.type}`}>{status.message}</div>
+        )}
+
+        <form method="post" id="formContacto">
+          <fieldset>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required>
+            <label for="correo">Email</label>
+            <input type="email" name="correo" id="correo" required>
+            <label for="empresa">Empresa</label>
+            <input type="text" name="empresa" id="empresa">
+            <label for="mensaje">¿Cómo te podemos ayudar?</label>
+            <textarea name="mensaje" id="mensaje" required></textarea>
+            <input type="text" name="_gotcha" style="display:none" />
+            <button id="frm-enviar" type="submit" class="button button-outline">Enviar mensaje</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="column column-25 siteContacto__col2">
+        <Facebook />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById('formContacto') as HTMLFormElement;
+  const btn = document.getElementById('frm-enviar') as HTMLButtonElement;
+
+  if (form) {
+    form.addEventListener('submit', async (evt) => {
+      evt.preventDefault();
+      
+      const formData = new FormData(form);
+      const statusMessage = document.createElement('div');
+      statusMessage.className = 'status';
+      
+      // Limpiar mensajes previos
+      const oldStatus = form.parentElement?.querySelector('.status');
+      if (oldStatus) oldStatus.remove();
+      
+      form.insertBefore(statusMessage, form.firstChild);
+      
+      btn.disabled = true;
+      statusMessage.innerHTML = 'Enviando...';
+
+      try {
+        const response = await fetch(window.location.href, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          statusMessage.innerHTML = 'Muchas gracias. Recibimos tu mensaje.';
+          statusMessage.className = 'status success';
+          form.reset();
+          // @ts-ignore
+          window.dataLayer?.push({
+            event: 'formSubmitted',
+            formName: form.id,
+          });
+        } else {
+          statusMessage.innerHTML = 'Tuvimos un problema al enviar tu mensaje.';
+          statusMessage.className = 'status error';
+          btn.disabled = false;
+        }
+      } catch (error) {
+        statusMessage.innerHTML = 'Error de conexión.';
+        statusMessage.className = 'status error';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
+
+<style>
+  .status {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+  }
+  .status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  .status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+</style>

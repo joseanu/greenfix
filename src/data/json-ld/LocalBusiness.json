@@ -1,0 +1,38 @@
+{
+  "@context": "http://schema.org",
+  "@type": "LocalBusiness",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.logo | prepend: site.url }}",
+  "image": "{{ site.url }}/assets/img/staff.jpg",
+  "hasMap": "{{ site.owner.google.maps }}",
+  "email": "mailto:{{ site.owner.email }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ site.owner.ciudad }}",
+    "addressRegion": "{{ site.owner.estado }}",
+    "addressCountry": "MX",
+    "postalCode": "{{ site.owner.odigopostal }}",
+    "streetAddress": "{{ site.owner.direccion }}, {{ site.owner.colonia }}"
+  },
+  "description": "{{ site.description }}",
+  "name": "{{ site.title }}",
+  {% include json-ld/telefono.json %}
+  "openingHours": {% include json-ld/horario.json %},
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ site.owner.latitud }}",
+    "longitude": "{{ site.owner.longitud }}"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+    "@type": "GeoCoordinates",
+      "latitude": "20.666111",
+      "longitude": "-103.351944"
+    },
+    "geoRadius": "16500"
+	},
+  "sameAs": [
+    "{{ site.owner.facebook }}"
+  ]
+}

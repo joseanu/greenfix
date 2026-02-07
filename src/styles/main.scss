@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@use "parcial/variables" as *;
+
+// Astro maneja esto automáticamente si se necesita, 
+// o podemos importarlo desde node_modules
+@use "milligram";
+
+@use "parcial/base";
+@use "parcial/siteHeader";
+@use "parcial/siteHome";
+@use "parcial/siteEmpresa";
+@use "parcial/siteServicios";
+@use "parcial/siteStaff";
+@use "parcial/siteContacto";

@@ -1,0 +1,19 @@
+{
+  "lang": "es",
+  "dir": "ltr",
+  "name": "{{ site.title }}",
+  "description": "{{ site.description }}",
+  "short_name": "Green Fix",
+  "icons": [
+		{
+			"src": "\/android-chrome-72x72.png",
+			"sizes": "72x72",
+			"type": "image\/png"
+		}
+	],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "natural",
+  "theme_color": "{{ site.color }}",
+  "background_color": "#ffffff"
+}

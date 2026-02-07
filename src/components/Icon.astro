@@ -1,0 +1,39 @@
+---
+interface Props {
+  icon: string;
+  class?: string;
+  title?: string;
+  sombra?: boolean;
+}
+
+const { icon, class: className, title, sombra } = Astro.props;
+---
+<svg class={className}>
+  {title && <title>{title}</title>}
+  {sombra && (
+    <filter id="dropshadow" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="1" dy="1" result="offsetblur"/>
+      <feComponentTransfer xmlns="http://www.w3.org/2000/svg">
+        <feFuncA type="linear" slope="0.7"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  )}
+  <use 
+    xlink:href={`/assets/svg/icons.svg#${icon}`} 
+    style={sombra ? "filter:url(#dropshadow)" : undefined}
+  ></use>
+</svg>
+
+<style>
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+  }
+</style>

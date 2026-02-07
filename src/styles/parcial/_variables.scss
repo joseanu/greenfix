@@ -1,0 +1,25 @@
+@use "sass:color";
+
+// tipografias
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+// dimensiones
+$spacing-unit:     2rem;
+
+$content-width:    120rem;
+
+// colores
+$text-color:       #706f6f;
+$background-color: #f6f6f6;
+$brand-color:      #069865; // El verde oscuro
+$brand-color2:     #9bd972; // El verde claro
+$brand-color3:     #d1eeff; // azul claro
+
+
+
+$blanco:           #ffffff;
+$negro:            #000000;
+
+$grey-color:       #828282;
+$grey-color-light: color.adjust($grey-color, $lightness: 40%);
+$grey-color-dark:  color.adjust($grey-color, $lightness: -25%);

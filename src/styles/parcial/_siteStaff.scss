@@ -1,0 +1,14 @@
+@use "variables" as *;
+.siteStaff {
+  .siteStaff__col1 {
+    padding-left: 0;
+  }
+  .siteStaff__col2 {
+    padding-right: 0;
+  }
+   
+  .siteStaff__imgIzq {
+    float: left;
+    margin-right: 4rem;
+  }
+}

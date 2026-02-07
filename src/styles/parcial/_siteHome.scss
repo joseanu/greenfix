@@ -1,0 +1,56 @@
+@use "variables" as *;
+.siteHome__heroWrap {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  margin-bottom: $spacing-unit;
+}
+
+.siteHome__hero {
+  position: relative;
+  margin-bottom: -$spacing-unit * 4;
+}
+
+.siteHome__hero__text {
+  background-color: rgba($blanco, 0.7);
+  padding: $spacing-unit $spacing-unit 0 $spacing-unit;
+  position: relative;
+  top: -$spacing-unit * 4;
+}
+
+.siteHome__hero__icon {
+  display: inline;
+  width: 4.97rem;
+  height: 4.97rem;
+  margin-bottom: -1.64rem;
+  fill: $brand-color;
+}
+
+@media (min-width: 50.0rem) {
+  .siteHome__hero__text {
+    width: 40rem;
+    right: 0;
+  }
+}
+
+@media (min-width: 45.0rem) {
+  .siteHome__hero {
+    padding-bottom: 36.84210526315789%;
+    height: 0;
+    margin-bottom: 0;
+    
+    > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .siteHome__hero__text {
+    margin: $spacing-unit;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+}

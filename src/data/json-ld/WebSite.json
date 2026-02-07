@@ -1,0 +1,6 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}"
+}
