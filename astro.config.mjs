@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.green-fix.com',
-  output: 'static',
+  output: 'server',
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',

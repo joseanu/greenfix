@@ -3,34 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import site from '../data/site.json';
 
-export const prerender = false;
-
 const title = "Contacto - Green Fix Limpieza";
 const description = "Solicite una cotización personalizada para servicios de limpieza y mantenimiento en Guadalajara.";
-
-let status = { type: '', message: '' };
-
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const gotcha = data.get("_gotcha");
-    if (gotcha) return new Response("Spam detected", { status: 400 });
-
-    // Lógica de respuesta JSON para el fetch del cliente
-    if (Astro.request.headers.get("Accept")?.includes("application/json")) {
-      return new Response(JSON.stringify({ success: true }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" }
-      });
-    }
-    status = { type: 'success', message: 'Muchas gracias. Recibimos tu mensaje.' };
-  } catch (error) {
-    if (Astro.request.headers.get("Accept")?.includes("application/json")) {
-      return new Response(JSON.stringify({ success: false }), { status: 500 });
-    }
-    status = { type: 'error', message: 'Tuvimos un problema al enviar tu mensaje.' };
-  }
-}
 ---
 
 <Layout title={title} description={description} bodyClass="siteContacto">
@@ -83,10 +57,6 @@ if (Astro.request.method === "POST") {
       </aside>
 
       <div class="contact-form-card">
-        {status.message && (
-          <div class={`status ${status.type}`}>{status.message}</div>
-        )}
-
         <form method="post" id="formContacto">
           <fieldset>
             <label for="nombre">Nombre Completo</label>
@@ -130,7 +100,7 @@ if (Astro.request.method === "POST") {
       statusMessage.innerHTML = 'Enviando...';
 
       try {
-        const response = await fetch(window.location.href, {
+        const response = await fetch('/api/contacto', {
           method: 'POST',
           body: formData,
           headers: { 'Accept': 'application/json' }
